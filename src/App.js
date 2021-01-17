@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react'
 import './App.css';
+import 'react-grid-layout/css/styles.css'
+
+import Grid from './Grid'
+import SizeInput from './SizeInput'
 
 function App() {
+  const [size, setSize] = useState(6)
+  useEffect(() => console.log('size', size), [size])
+  const updateSize = (newSize) => {
+    console.log('newSize', newSize)
+    if (newSize > 8) {
+      setSize(8)
+    } else if (newSize < 2) {
+      setSize(2)
+    } else {
+      setSize(newSize)
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" >
+      <Grid size={size}/>
+      <SizeInput size={size} updateSize={updateSize}/>
     </div>
   );
 }

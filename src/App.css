@@ -1,5 +1,17 @@
 .App {
   text-align: center;
+  padding: 5px;
+}
+
+.Cell {
+    height: 100%;
+    font-size: 8vw;
+}
+/* If the screen size is 601px wide or more, set the font-size of <div> to 80px */
+@media screen and (min-width: 990px) {
+  .Cell {
+    font-size: 80px;
+  }
 }
 
 .App-logo {
