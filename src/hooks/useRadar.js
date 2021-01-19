@@ -9,8 +9,19 @@ export const RadarProvider = ({ children }) => {
   const MAX_SIZE = 12
   const MIN_SIZE = 2
   const [size, setSize] = useState(DEFAULT_GAMESIZE)
-  const defaultCells = new Array(size * size).fill('water')
-  const [cells, setCells] = useState(defaultCells)
+  const [cells, setCells] = useState()
+
+  const initalizeCells = useCallback(() => {
+    setCells([])
+    const defaultCells = new Array(size * size).fill('water')
+    setCells(defaultCells)
+  }, [size, setCells])
+
+  useEffect(() => {
+    if (size > 0) {
+      initalizeCells()
+    }
+  }, [size, initalizeCells])
 
   const updateSize = (newSize) => {
     console.log('newSize', newSize)
@@ -19,17 +30,13 @@ export const RadarProvider = ({ children }) => {
     } else if (newSize < MIN_SIZE) {
       setSize(MIN_SIZE)
     } else {
-      setSize(newSize)
+      setSize(Number(newSize))
     }
   }
 
   const resetCells = useCallback(() => {
-    setCells(defaultCells)
-  }, [setCells, defaultCells])
-
-  useEffect(() => {
-    resetCells()
-  }, [size])
+    initalizeCells()
+  }, [initalizeCells])
 
   const cycleCellStatus = (index) => {
     const newCells = [...cells]

@@ -12,15 +12,11 @@ const Grid = (props) => {
 
   const {size, cells = [], cycleCellStatus} = useRadar()
 
-  const children = React.useMemo(() => {
-    return cells.map((val, idx) => {
-      return <div key={idx} data-grid={{x: idx % size, y: Math.floor(idx / size), w: 1, h: 1, static: true}}><Cell status={val} onClick={() => cycleCellStatus(idx)}/></div>;
-    });
-  }, [size, cells, cycleCellStatus]);
-
   return (
     <GridLayout className="layout" cols={size} rowHeight={maxWidth / size} width={maxWidth} margin={[2,2]}>
-      {children}
+      {cells.map((val, idx) => {
+        return <div key={idx} data-grid={{x: idx % size, y: Math.floor(idx / size), w: 1, h: 1, static: true}}><Cell status={val} onClick={() => cycleCellStatus(idx)}/></div>;
+      })}
     </GridLayout>
   )
 }
