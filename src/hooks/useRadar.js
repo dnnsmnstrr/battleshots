@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect, useContext } from 'react'
+import React, { createContext, useState, useEffect, useContext, useCallback } from 'react'
 
 export const RadarContext = createContext({})
 export const useRadar = () => useContext(RadarContext)
@@ -23,12 +23,12 @@ export const RadarProvider = ({ children }) => {
     }
   }
 
-  const resetCells = (size) => {
+  const resetCells = useCallback(() => {
     setCells(defaultCells)
-  }
+  }, [setCells, defaultCells])
 
   useEffect(() => {
-    resetCells(size)
+    resetCells()
   }, [size])
 
   const cycleCellStatus = (index) => {

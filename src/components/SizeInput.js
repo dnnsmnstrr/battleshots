@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import PropTypes from 'prop-types'
 import {useRadar} from '../hooks/useRadar'
 
 const SizeInput = (props) => {
