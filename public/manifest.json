@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Battleshots Companion",
+  "name": "Take note of your hits and misses",
   "icons": [
     {
       "src": "favicon.ico",
