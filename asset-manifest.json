@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/battleshots/static/css/main.c726da85.chunk.css",
+    "main.js": "/battleshots/static/js/main.161b036a.chunk.js",
+    "main.js.map": "/battleshots/static/js/main.161b036a.chunk.js.map",
+    "runtime-main.js": "/battleshots/static/js/runtime-main.4641db3b.js",
+    "runtime-main.js.map": "/battleshots/static/js/runtime-main.4641db3b.js.map",
+    "static/css/2.8a4e8fbd.chunk.css": "/battleshots/static/css/2.8a4e8fbd.chunk.css",
+    "static/js/2.e3d783b2.chunk.js": "/battleshots/static/js/2.e3d783b2.chunk.js",
+    "static/js/2.e3d783b2.chunk.js.map": "/battleshots/static/js/2.e3d783b2.chunk.js.map",
+    "static/js/3.b5000652.chunk.js": "/battleshots/static/js/3.b5000652.chunk.js",
+    "static/js/3.b5000652.chunk.js.map": "/battleshots/static/js/3.b5000652.chunk.js.map",
+    "index.html": "/battleshots/index.html",
+    "static/css/2.8a4e8fbd.chunk.css.map": "/battleshots/static/css/2.8a4e8fbd.chunk.css.map",
+    "static/css/main.c726da85.chunk.css.map": "/battleshots/static/css/main.c726da85.chunk.css.map",
+    "static/js/2.e3d783b2.chunk.js.LICENSE.txt": "/battleshots/static/js/2.e3d783b2.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4641db3b.js",
+    "static/css/2.8a4e8fbd.chunk.css",
+    "static/js/2.e3d783b2.chunk.js",
+    "static/css/main.c726da85.chunk.css",
+    "static/js/main.161b036a.chunk.js"
+  ]
+}
