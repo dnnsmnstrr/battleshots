@@ -39,19 +39,19 @@ export const RadarProvider = ({ children }) => {
     initalizeCells()
   }, [initalizeCells])
 
-  const cycleCellStatus = (index, isHit = false) => {
+  const cycleCellStatus = (index, secondary = false) => {
     const newCells = [...cells]
     const currentCellStatus = newCells[index]
 
     switch (currentCellStatus) {
       case 'hit':
-        newCells[index] = isHit ? 'water' : 'miss'
+        newCells[index] = secondary ? 'water' : 'miss'
         break
       case 'miss':
-        newCells[index] = 'hit'
+        newCells[index] = secondary ? 'water' : 'hit'
         break
       default:
-        newCells[index] = isHit ? 'hit' : 'miss'
+        newCells[index] = secondary ? 'hit' : 'miss'
     }
 
     setCells(newCells)

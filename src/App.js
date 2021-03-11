@@ -14,8 +14,10 @@ function App() {
   return (
     <RadarProvider>
       <div className="App" >
-        <Grid />
-        <SizeInput />
+        <div className="Container" >
+          <Grid />
+          <SizeInput />
+        </div>
       </div>
     </RadarProvider>
   );
