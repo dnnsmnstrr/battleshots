@@ -7,7 +7,6 @@ const colors = {
 }
 
 const Cell = ({status, onClick, isHighlighted = false}) => {
-  const isHit = status === 'hit'
   return (
     <div className='Cell' style={{backgroundColor: colors[status], border: isHighlighted ? '3px solid black' : '3px solid white'}} onClick={onClick} onContextMenu={onClick}></div>
   )
