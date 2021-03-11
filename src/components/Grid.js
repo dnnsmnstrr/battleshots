@@ -43,7 +43,6 @@ const Grid = (props) => {
       margin={[2,2]}
     >
       {grid.map(({value, cellType, x, y, index}, idx) => {
-        console.log('idx', idx)
         return <div className='cellContainer' key={idx} data-grid={{x, y, w: 1, h: 1, static: true}}>
           {cellType === 'label' ? <Label index={value} numeric={!x} /> : <Cell status={value} onClick={(e) => cycleCellStatus(index, e.type === 'contextmenu')}/>}
         </div>;

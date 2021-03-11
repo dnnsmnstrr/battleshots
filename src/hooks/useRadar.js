@@ -4,7 +4,7 @@ export const RadarContext = createContext({})
 export const useRadar = () => useContext(RadarContext)
 
 export const RadarProvider = ({ children }) => {
-  const DEFAULT_GAMESIZE = 3
+  const DEFAULT_GAMESIZE = 6
   const MAX_SIZE = 12
   const MIN_SIZE = 2
   const [size, setSize] = useState(DEFAULT_GAMESIZE)
@@ -15,7 +15,6 @@ export const RadarProvider = ({ children }) => {
     setUpdating(true)
     setCells([])
     const defaultCells = new Array(size * size).fill('water')
-    console.log('defaultCells', defaultCells)
     setCells(defaultCells)
     setUpdating(false)
   }, [size, setCells])

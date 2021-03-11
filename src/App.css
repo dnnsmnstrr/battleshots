@@ -1,11 +1,13 @@
 .App {
   text-align: center;
   vertical-align: middle;
-  user-select: none;
   padding: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 .cellContainer {
+  user-select: none;
   display: flex;
   align-items: center;
   justify-content: center;
