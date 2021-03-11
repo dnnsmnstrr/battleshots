@@ -8,9 +8,8 @@ const colors = {
 
 const Cell = ({status, onClick}) => {
   const isHit = status === 'hit'
-
   return (
-    <div className='Cell' style={{backgroundColor: colors[status]}} onClick={onClick}>{isHit ? "X" : ''}</div>
+    <div className='Cell' style={{backgroundColor: colors[status]}} onClick={onClick} onContextMenu={onClick}>{isHit ? "X" : ''}</div>
   )
 }
 

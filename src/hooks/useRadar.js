@@ -3,18 +3,21 @@ import React, { createContext, useState, useEffect, useContext, useCallback } fr
 export const RadarContext = createContext({})
 export const useRadar = () => useContext(RadarContext)
 
-
 export const RadarProvider = ({ children }) => {
-  const DEFAULT_GAMESIZE = 8
+  const DEFAULT_GAMESIZE = 3
   const MAX_SIZE = 12
   const MIN_SIZE = 2
   const [size, setSize] = useState(DEFAULT_GAMESIZE)
   const [cells, setCells] = useState()
+  const [updating, setUpdating] = useState(false)
 
   const initalizeCells = useCallback(() => {
+    setUpdating(true)
     setCells([])
     const defaultCells = new Array(size * size).fill('water')
+    console.log('defaultCells', defaultCells)
     setCells(defaultCells)
+    setUpdating(false)
   }, [size, setCells])
 
   useEffect(() => {
@@ -24,7 +27,6 @@ export const RadarProvider = ({ children }) => {
   }, [size, initalizeCells])
 
   const updateSize = (newSize) => {
-    console.log('newSize', newSize)
     if (newSize > MAX_SIZE) {
       setSize(MAX_SIZE)
     } else if (newSize < MIN_SIZE) {
@@ -38,19 +40,19 @@ export const RadarProvider = ({ children }) => {
     initalizeCells()
   }, [initalizeCells])
 
-  const cycleCellStatus = (index) => {
+  const cycleCellStatus = (index, isHit = false) => {
     const newCells = [...cells]
     const currentCellStatus = newCells[index]
 
     switch (currentCellStatus) {
-      case 'water':
+      case 'hit':
+        newCells[index] = isHit ? 'water' : 'miss'
+        break
+      case 'miss':
         newCells[index] = 'hit'
         break
-      case 'hit':
-        newCells[index] = 'miss'
-        break
       default:
-        newCells[index] = 'water'
+        newCells[index] = isHit ? 'hit' : 'miss'
     }
 
     setCells(newCells)
@@ -65,6 +67,7 @@ export const RadarProvider = ({ children }) => {
       value={{
         size,
         updateSize,
+        updating,
         cells,
         resetCells,
         getCellStatus,
